@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome, idiot</title>
+    <style>
+        body {
+            background-color: rgb(43, 42, 51);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .searchbar-div {
+            width: 50vw;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4a5186;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+
+        .grid-container {
+            width: 50vw;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            margin-top: 20px;
+            padding-left: 15px;
+        }
+
+        .grid-item {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+        }
+
+        .grid-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="searchbar-div">
+        <form action="https://duckduckgo.com/" method="get">
+            <input type="text" name="q" placeholder="Search your shit...">
+        </form>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item" data-url="https://www.youtube.com/">YouTube</div>
+        <div class="grid-item" data-url="https://github.com/">GitHub</div>
+        <div class="grid-item" data-url="https://www.tumblr.com/">Tumblr</div>
+        <div class="grid-item" data-url="https://chatgpt.com/">Chat GPT</div>
+        <div class="grid-item" data-url="#">Item x</div>
+        <div class="grid-item" data-url="#">Item x</div>
+    </div>
+
+    <script>
+        // Add event listeners to each grid-item
+        document.querySelectorAll('.grid-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const url = item.getAttribute('data-url');
+                if (url) {
+                    window.location.href = url;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
